@@ -1,7 +1,4 @@
 library ga_uikit;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/widgets/tab_bar/ga_tab_bar.dart';
+export 'src/widgets/drop_down/ga_drop_down.dart';
