@@ -1,6 +1,4 @@
-part of 'ga_drop_down.dart';
-
-/// This class need [T] type model name and value
+// This class need [T] type model name and value
 class MenuItem<T> {
   final T model;
   final String value;

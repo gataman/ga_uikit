@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-part 'menu_item.dart';
+import 'menu_item.dart';
 
 class CustomDropDown<T> extends StatefulWidget {
   const CustomDropDown({
@@ -20,11 +20,9 @@ class CustomDropDown<T> extends StatefulWidget {
   final MenuItem<T>? defaultValue;
   final String? defaultHint;
   final TextStyle? menuItemTextStyle;
-
   final Color? iconColor;
   final IconData? iconData;
   final double? iconSize;
-
   final double? menuMaxHeight;
 
   @override
