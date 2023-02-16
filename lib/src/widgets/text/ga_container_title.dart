@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 enum TitleDividerPos {
   up,
   down,
+  all,
   none,
 }
 
@@ -47,7 +48,7 @@ class GaContainerTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        _getUpDivider(),
+        _getDivider(TitleDividerPos.up),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
@@ -67,16 +68,20 @@ class GaContainerTitle extends StatelessWidget {
             ],
           ),
         ),
-        _getDownDivider()
+        _getDivider(TitleDividerPos.down)
       ],
     );
   }
 
-  _getUpDivider() {
-    return Divider();
-  }
-
-  _getDownDivider() {
-    return Divider();
+  Widget _getDivider(TitleDividerPos pos) {
+    if (dividerPos == pos || dividerPos == TitleDividerPos.all) {
+      return Divider(
+        thickness: dividerType.size,
+      );
+    } else {
+      return const SizedBox(
+        height: 8,
+      );
+    }
   }
 }
