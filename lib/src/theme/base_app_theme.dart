@@ -19,4 +19,5 @@ abstract class BaseAppTheme {
   BottomSheetThemeData? get bottomSheetTheme;
   Color? get dividerColor;
   NavigationRailThemeData? get navigationRailTheme;
+  DividerThemeData? get dividerThemeData;
 }
