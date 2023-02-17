@@ -22,4 +22,5 @@ abstract class BaseAppTheme {
   NavigationRailThemeData? get navigationRailTheme;
   DividerThemeData? get dividerThemeData;
   DialogTheme? get dialogTheme;
+  Iterable<ThemeExtension<dynamic>>? get customColorExtensions;
 }
