@@ -5,7 +5,6 @@ abstract class BaseAppTheme {
   Color? get primaryColor;
   Color? get canvasColor;
   Color? get cardColor;
-  Color? get successColor;
   String? get fontFamily;
 
   AppBarTheme? get appBarTheme;
