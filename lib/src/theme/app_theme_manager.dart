@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ga_uikit/src/theme/theme_extensions.dart';
 import 'base_app_theme.dart';
 
 class AppThemeManager {
@@ -36,5 +37,5 @@ class AppThemeManager {
         textTheme: appTheme.textTheme,
         dividerTheme: appTheme.dividerThemeData,
         dialogTheme: appTheme.dialogTheme,
-      );
+      )..successColor(appTheme.successColor);
 }
