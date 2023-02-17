@@ -10,6 +10,7 @@ class GaViewContainer extends StatelessWidget {
     this.borderColor,
     this.borderWidth,
     this.cardMargin,
+    this.backgroundColor,
   }) : super(key: key);
 
   final Widget child;
@@ -20,10 +21,12 @@ class GaViewContainer extends StatelessWidget {
   final Color? borderColor;
   final double? borderWidth;
   final double? cardMargin;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: backgroundColor,
       margin: EdgeInsets.all(cardMargin ?? 0),
       shape: BeveledRectangleBorder(
         side: BorderSide(
