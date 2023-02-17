@@ -13,6 +13,7 @@ export 'src/widgets/container/ga_rounded_container.dart';
 export 'src/widgets/container/ga_view_container.dart';
 
 export 'src/widgets/text/ga_container_title.dart';
+export 'src/widgets/text/ga_empty_alert_text.dart';
 
 export 'src/widgets/progress_bars/ga_circular_progress.dart';
 
