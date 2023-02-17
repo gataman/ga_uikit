@@ -20,3 +20,4 @@ export 'src/widgets/progress_bars/ga_circular_progress.dart';
 export 'src/theme/app_theme_manager.dart';
 export 'src/theme/base_app_theme.dart';
 export 'src/theme/custom_colors.dart';
+export 'src/widgets/dialog/ga_form_dialog.dart';
