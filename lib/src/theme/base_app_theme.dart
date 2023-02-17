@@ -20,4 +20,5 @@ abstract class BaseAppTheme {
   Color? get dividerColor;
   NavigationRailThemeData? get navigationRailTheme;
   DividerThemeData? get dividerThemeData;
+  DialogTheme? get dialogTheme;
 }
