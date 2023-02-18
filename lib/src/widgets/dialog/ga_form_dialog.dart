@@ -35,7 +35,7 @@ class GaFormDialog extends StatelessWidget {
   }
 
   double _getDialogWidth(BoxConstraints boxConstraints) =>
-      boxConstraints.maxWidth > 1000 ? boxConstraints.maxWidth * .5 : boxConstraints.maxWidth;
+      boxConstraints.maxWidth > 1000 ? boxConstraints.maxWidth * widthRatio : boxConstraints.maxWidth;
 
-  double _getDialogHeight(BoxConstraints boxConstraints) => boxConstraints.maxHeight * .8;
+  double _getDialogHeight(BoxConstraints boxConstraints) => boxConstraints.maxHeight * heightRatio;
 }
