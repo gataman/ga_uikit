@@ -31,7 +31,7 @@ class GaLoadingButton extends StatelessWidget {
   final ButtonStyle? buttonStyle;
   final double radius;
   final RoundType roundType;
-  final String loadingText;
+  final String? loadingText;
   final double iconSize;
   final Color? iconColor;
   final TextStyle? textStyle;
@@ -70,7 +70,7 @@ class GaLoadingButton extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                isLoading ? loadingText : text,
+                isLoading ? loadingText ?? text : text,
                 style: textStyle ??
                     TextStyle(
                       color: textColor ?? Theme.of(context).colorScheme.onPrimary,

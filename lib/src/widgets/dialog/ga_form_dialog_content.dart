@@ -29,6 +29,7 @@ class GaFormDialogContent extends StatelessWidget {
     this.buttonRadius = 10,
     this.confirmIconPosition,
     this.cancelIconPosition,
+    this.loadingText,
   });
 
   final String? title;
@@ -52,11 +53,11 @@ class GaFormDialogContent extends StatelessWidget {
   final Widget? cancelButtonIcon;
   final Color? cancelButtonColor;
   final RoundType cancelButtonRoundType;
+
   final IconPosition? cancelIconPosition;
-
   final double buttonRadius;
-
   final ValueNotifier<bool>? loadingListener;
+  final String? loadingText;
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +119,7 @@ class GaFormDialogContent extends StatelessWidget {
         roundType: confirmButtonRoundType,
         iconPosition: confirmIconPosition ?? IconPosition.right,
         backgroundColor: confirmButtonColor ?? Colors.green[700],
+        loadingText: loadingText,
       ),
     );
   }
