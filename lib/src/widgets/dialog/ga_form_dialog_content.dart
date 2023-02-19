@@ -31,6 +31,8 @@ class GaFormDialogContent extends StatelessWidget {
     this.cancelIconPosition,
     this.loadingText,
     this.errorListener,
+    this.errorTextStyle,
+    this.errorBoxDecoration,
   });
 
   final String? title;
@@ -60,6 +62,9 @@ class GaFormDialogContent extends StatelessWidget {
   final ValueNotifier<bool>? loadingListener;
   final ValueNotifier<String?>? errorListener;
   final String? loadingText;
+
+  final TextStyle? errorTextStyle;
+  final Decoration? errorBoxDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -158,9 +163,14 @@ class GaFormDialogContent extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(4.0),
               child: Container(
+                decoration: errorBoxDecoration,
                 color: Theme.of(context).colorScheme.error,
                 child: Center(
-                  child: Text(errorListener!.value ?? ''),
+                  child: Text(
+                    errorListener!.value ?? '',
+                    style: errorTextStyle ??
+                        Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onError),
+                  ),
                 ),
               ),
             );
