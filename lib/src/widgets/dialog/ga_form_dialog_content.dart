@@ -27,6 +27,8 @@ class GaFormDialogContent extends StatelessWidget {
     this.confirmButtonRoundType = RoundType.none,
     this.cancelButtonRoundType = RoundType.none,
     this.buttonRadius = 10,
+    this.confirmIconPosition,
+    this.cancelIconPosition,
   });
 
   final String? title;
@@ -43,12 +45,14 @@ class GaFormDialogContent extends StatelessWidget {
   final Widget? confirmButtonIcon;
   final Color? confirmButtonColor;
   final RoundType confirmButtonRoundType;
+  final IconPosition? confirmIconPosition;
 
   final Function()? onCancelButtonPressed;
   final String? cancelButtonLabel;
   final Widget? cancelButtonIcon;
   final Color? cancelButtonColor;
   final RoundType cancelButtonRoundType;
+  final IconPosition? cancelIconPosition;
 
   final double buttonRadius;
 
@@ -112,7 +116,7 @@ class GaFormDialogContent extends StatelessWidget {
         text: confirmButtonLabel ?? 'Save',
         radius: buttonRadius,
         roundType: confirmButtonRoundType,
-        iconPosition: IconPosition.right,
+        iconPosition: confirmIconPosition ?? IconPosition.right,
         backgroundColor: confirmButtonColor ?? Colors.green[700],
       ),
     );
@@ -125,6 +129,7 @@ class GaFormDialogContent extends StatelessWidget {
         text: cancelButtonLabel ?? 'Cancel',
         radius: buttonRadius,
         roundType: cancelButtonRoundType,
+        iconPosition: cancelIconPosition ?? IconPosition.left,
         loadingListener: null,
         backgroundColor: cancelButtonColor ?? Colors.red[700],
       ),
