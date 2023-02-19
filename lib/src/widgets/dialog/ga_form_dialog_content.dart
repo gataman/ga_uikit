@@ -177,6 +177,9 @@ class GaFormDialogContent extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onError,
                         size: 16,
                       ),
+                      const SizedBox(
+                        width: 4,
+                      ),
                       Expanded(
                         child: Center(
                           child: Text(

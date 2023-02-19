@@ -15,6 +15,7 @@ class GaTextFormField extends StatelessWidget {
     this.textAlignVertical,
     this.obscureText = false,
     this.obscuringCharacter = '•',
+    this.controller,
   });
 
   final String? label;
@@ -29,10 +30,12 @@ class GaTextFormField extends StatelessWidget {
   final TextAlignVertical? textAlignVertical;
   final bool obscureText;
   final String obscuringCharacter;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(label: Text(label ?? ''), hintText: hintText),
       keyboardType: TextInputType.name,
       textInputAction: textInputAction ?? TextInputAction.go,
