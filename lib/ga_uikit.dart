@@ -4,6 +4,7 @@ export 'src/enums/round_type.dart';
 
 export 'src/widgets/container/ga_rounded_container.dart';
 export 'src/widgets/container/ga_view_container.dart';
+export 'src/widgets/button/ga_loading_button.dart';
 export 'src/widgets/drop_down/ga_drop_down.dart';
 export 'src/widgets/drop_down/ga_drop_down_with_menu.dart';
 export 'src/widgets/drop_down/menu_item.dart';
