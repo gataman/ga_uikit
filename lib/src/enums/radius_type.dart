@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-enum RoundType {
+enum RadiusType {
   all,
   none,
   top,
@@ -15,7 +16,7 @@ enum RoundType {
   topRightAndBottomLeft
 }
 
-extension RoundTypeRadius on RoundType {
+extension RoundTypeRadius on RadiusType {
   BorderRadiusGeometry getRadius(radius) {
     Radius topLeft = Radius.zero;
     Radius bottomLeft = Radius.zero;
@@ -23,50 +24,50 @@ extension RoundTypeRadius on RoundType {
     Radius bottomRight = Radius.zero;
 
     switch (this) {
-      case RoundType.all:
+      case RadiusType.all:
         topLeft = Radius.circular(radius ?? 5);
         bottomLeft = Radius.circular(radius ?? 5);
         topRight = Radius.circular(radius ?? 5);
         bottomRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.top:
+      case RadiusType.top:
         topLeft = Radius.circular(radius ?? 5);
         topRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.bottom:
+      case RadiusType.bottom:
         bottomLeft = Radius.circular(radius ?? 5);
         bottomRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.left:
+      case RadiusType.left:
         topLeft = Radius.circular(radius ?? 5);
         bottomLeft = Radius.circular(radius ?? 5);
         break;
-      case RoundType.right:
+      case RadiusType.right:
         topRight = Radius.circular(radius ?? 5);
         bottomRight = Radius.circular(radius ?? 5);
         break;
 
-      case RoundType.topLeft:
+      case RadiusType.topLeft:
         topLeft = Radius.circular(radius ?? 5);
         break;
-      case RoundType.bottomLeft:
+      case RadiusType.bottomLeft:
         bottomLeft = Radius.circular(radius ?? 5);
         break;
-      case RoundType.topRight:
+      case RadiusType.topRight:
         topRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.bottomRight:
+      case RadiusType.bottomRight:
         bottomRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.topLeftAndBottomRight:
+      case RadiusType.topLeftAndBottomRight:
         topLeft = Radius.circular(radius ?? 5);
         bottomRight = Radius.circular(radius ?? 5);
         break;
-      case RoundType.topRightAndBottomLeft:
+      case RadiusType.topRightAndBottomLeft:
         topRight = Radius.circular(radius ?? 5);
         bottomLeft = Radius.circular(radius ?? 5);
         break;
-      case RoundType.none:
+      case RadiusType.none:
         break;
     }
 

@@ -24,8 +24,8 @@ class GaFormDialogContent extends StatelessWidget {
     this.confirmButtonColor,
     this.cancelButtonColor,
     required this.loadingListener,
-    this.confirmButtonRoundType = RoundType.none,
-    this.cancelButtonRoundType = RoundType.none,
+    this.confirmButtonRoundType = RadiusType.none,
+    this.cancelButtonRoundType = RadiusType.none,
     this.buttonRadius = 10,
     this.confirmIconPosition,
     this.cancelIconPosition,
@@ -48,14 +48,14 @@ class GaFormDialogContent extends StatelessWidget {
   final String? confirmButtonLabel;
   final Widget? confirmButtonIcon;
   final Color? confirmButtonColor;
-  final RoundType confirmButtonRoundType;
+  final RadiusType confirmButtonRoundType;
   final IconPosition? confirmIconPosition;
 
   final Function()? onCancelButtonPressed;
   final String? cancelButtonLabel;
   final Widget? cancelButtonIcon;
   final Color? cancelButtonColor;
-  final RoundType cancelButtonRoundType;
+  final RadiusType cancelButtonRoundType;
 
   final IconPosition? cancelIconPosition;
   final double buttonRadius;
@@ -74,7 +74,7 @@ class GaFormDialogContent extends StatelessWidget {
       children: [
         GaRoundedContainer(
           radius: titleBoxRadius,
-          roundType: RoundType.top,
+          roundType: RadiusType.top,
           height: titleBoxHeight,
           child: _titleRow(context),
         ),
@@ -163,13 +163,44 @@ class GaFormDialogContent extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(4.0),
               child: Container(
-                decoration: errorBoxDecoration,
-                color: Theme.of(context).colorScheme.error,
-                child: Center(
-                  child: Text(
-                    errorListener!.value ?? '',
-                    style: errorTextStyle ??
-                        Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onError),
+                decoration: errorBoxDecoration ??
+                    BoxDecoration(
+                      borderRadius: RadiusType.all.getRadius(5),
+                      color: Theme.of(context).colorScheme.error,
+                    ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.warning,
+                        color: Theme.of(context).colorScheme.onError,
+                        size: 16,
+                      ),
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            errorListener!.value ?? '',
+                            style: errorTextStyle ??
+                                Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(color: Theme.of(context).colorScheme.onError),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          errorListener!.value = null;
+                        },
+                        icon: Icon(
+                          Icons.close,
+                          size: 16,
+                          color: Theme.of(context).colorScheme.onError,
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -184,23 +215,3 @@ class GaFormDialogContent extends StatelessWidget {
     }
   }
 }
-
-/*!SECTION
-
-ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: _getBackgroundColor(context, isConfirm) ?? Theme.of(context).colorScheme.primary,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular((isConfirm && onCancelButtonPressed != null) ? 0 : 10),
-              bottomRight: Radius.circular((!isConfirm && onConfirmButtonPressed != null) ? 0 : 10),
-            ),
-          ),
-        ),
-        onPressed: isConfirm ? onConfirmButtonPressed : onCancelButtonPressed,
-        icon: isConfirm ? confirmButtonIcon ?? const Icon(Icons.save) : cancelButtonIcon ?? const Icon(Icons.cancel),
-        label: isConfirm ? Text(confirmButtonLabel ?? 'Save') : Text(cancelButtonLabel ?? 'Cancel'),
-      ),
-
-
-*/

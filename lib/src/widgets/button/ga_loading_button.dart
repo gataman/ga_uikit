@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../enums/icon_position.dart';
-import '../../enums/round_type.dart';
+import '../../enums/radius_type.dart';
 
 class GaLoadingButton extends StatelessWidget {
   const GaLoadingButton({
@@ -16,7 +16,7 @@ class GaLoadingButton extends StatelessWidget {
     this.iconColor,
     this.loadingText = 'Please wait',
     this.radius = 5,
-    this.roundType = RoundType.all,
+    this.roundType = RadiusType.all,
     this.textColor,
     this.textStyle,
     this.iconPosition = IconPosition.left,
@@ -30,7 +30,7 @@ class GaLoadingButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
   final double radius;
-  final RoundType roundType;
+  final RadiusType roundType;
   final String? loadingText;
   final double iconSize;
   final Color? iconColor;

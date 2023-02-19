@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../enums/icon_position.dart';
-import '../../enums/round_type.dart';
-import '../../theme/custom_colors.dart';
+import '../../enums/radius_type.dart';
 import '../button/ga_loading_button.dart';
 import '../container/ga_rounded_container.dart';
 
