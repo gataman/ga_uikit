@@ -73,16 +73,7 @@ class GaFormDialogContent extends StatelessWidget {
           height: titleBoxHeight,
           child: _titleRow(context),
         ),
-        if (errorListener != null && errorListener!.value != null)
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Container(
-              color: Theme.of(context).colorScheme.error,
-              child: Center(
-                child: Text(errorListener!.value ?? ''),
-              ),
-            ),
-          ),
+        _errorContainer(context),
         Expanded(child: SingleChildScrollView(child: content)),
         _actionButtons(context)
       ],
@@ -156,6 +147,31 @@ class GaFormDialogContent extends StatelessWidget {
         backgroundColor: cancelButtonColor ?? Colors.red[700],
       ),
     );
+  }
+
+  Widget _errorContainer(BuildContext context) {
+    if (errorListener != null) {
+      return ValueListenableBuilder(
+        valueListenable: errorListener!,
+        builder: (context, value, child) {
+          if (value != null) {
+            return Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Container(
+                color: Theme.of(context).colorScheme.error,
+                child: Center(
+                  child: Text(errorListener!.value ?? ''),
+                ),
+              ),
+            );
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 }
 
