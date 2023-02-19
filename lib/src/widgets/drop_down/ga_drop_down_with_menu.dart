@@ -22,7 +22,7 @@ class CustomDropDownMenu<T> extends StatefulWidget {
   final Function(T?) callback;
   final MenuItem<T>? defaultValue;
   final String? defaultHint;
-  final Function(T?, int index) onSettingsTap;
+  final Function(T?, MenuType menuType) onSettingsTap;
   final TextStyle? menuItemTextStyle;
   final Color? iconColor;
   final IconData? iconData;
@@ -73,17 +73,7 @@ class _CustomDropDownMenuState<T> extends State<CustomDropDownMenu<T>> {
     return CrudPopupMenu(
       iconData: Icons.edit_document,
       menuCallBack: (menuType) {
-        switch (menuType) {
-          case MenuType.add:
-            widget.onSettingsTap(defaultItem!.model, 0);
-            break;
-          case MenuType.edit:
-            widget.onSettingsTap(defaultItem!.model, 1);
-            break;
-          case MenuType.delete:
-            widget.onSettingsTap(defaultItem!.model, 2);
-            break;
-        }
+        widget.onSettingsTap(defaultItem!.model, menuType);
       },
     );
   }
