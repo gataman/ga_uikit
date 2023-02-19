@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
-enum RoundType { all, top, bottom, left, right }
+enum RoundType {
+  all,
+  none,
+  top,
+  bottom,
+  left,
+  right,
+  topLeft,
+  bottomLeft,
+  topRight,
+  bottomRight,
+  topLeftAndBottomRight,
+  topRightAndBottomLeft
+}
 
 extension RoundTypeRadius on RoundType {
   BorderRadiusGeometry getRadius(radius) {
@@ -31,6 +44,29 @@ extension RoundTypeRadius on RoundType {
       case RoundType.right:
         topRight = Radius.circular(radius ?? 5);
         bottomRight = Radius.circular(radius ?? 5);
+        break;
+
+      case RoundType.topLeft:
+        topLeft = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.bottomLeft:
+        bottomLeft = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.topRight:
+        topRight = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.bottomRight:
+        bottomRight = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.topLeftAndBottomRight:
+        topLeft = Radius.circular(radius ?? 5);
+        bottomRight = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.topRightAndBottomLeft:
+        topRight = Radius.circular(radius ?? 5);
+        bottomLeft = Radius.circular(radius ?? 5);
+        break;
+      case RoundType.none:
         break;
     }
 

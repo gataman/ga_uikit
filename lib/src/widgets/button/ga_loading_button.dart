@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../enums/icon_position.dart';
 import '../../enums/round_type.dart';
 
 class GaLoadingButton extends StatelessWidget {
@@ -7,8 +8,8 @@ class GaLoadingButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.loadingListener,
-    required this.onPressed,
-    this.backColor,
+    this.onPressed,
+    this.backgroundColor,
     this.buttonStyle,
     this.iconData = Icons.save,
     this.iconSize = 20.0,
@@ -18,14 +19,15 @@ class GaLoadingButton extends StatelessWidget {
     this.roundType = RoundType.all,
     this.textColor,
     this.textStyle,
+    this.iconPosition = IconPosition.left,
   }) : super(key: key);
 
-  final Color? backColor;
+  final Color? backgroundColor;
   final Color? textColor;
   final String text;
   final IconData iconData;
-  final ValueNotifier<bool> loadingListener;
-  final VoidCallback onPressed;
+  final ValueNotifier<bool>? loadingListener;
+  final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
   final double radius;
   final RoundType roundType;
@@ -33,54 +35,77 @@ class GaLoadingButton extends StatelessWidget {
   final double iconSize;
   final Color? iconColor;
   final TextStyle? textStyle;
+  final IconPosition iconPosition;
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: loadingListener,
-      builder: (context, isLoading, child) {
-        return ElevatedButton(
-          style: buttonStyle ??
-              ElevatedButton.styleFrom(
-                  backgroundColor: backColor ?? Theme.of(context).primaryColor,
-                  shape: RoundedRectangleBorder(borderRadius: roundType.getRadius(radius))),
-          onPressed: () {
-            if (!isLoading) {
-              onPressed();
-            }
-          },
-          child: Row(
-            children: [
-              isLoading
-                  ? SizedBox(
-                      width: iconSize,
-                      height: iconSize,
-                      child: CircularProgressIndicator(
-                        color: iconColor ?? Theme.of(context).colorScheme.onPrimary,
-                      ),
-                    )
-                  : Icon(
-                      iconData,
-                      size: iconSize,
-                      color: textColor ?? Theme.of(context).colorScheme.onPrimary,
-                    ),
-              Expanded(
-                child: Center(
-                  child: Text(
-                    isLoading ? loadingText : text,
-                    style: textStyle ??
-                        TextStyle(
-                          color: textColor ?? Theme.of(context).colorScheme.onPrimary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
+    return loadingListener != null
+        ? ValueListenableBuilder(
+            valueListenable: loadingListener!,
+            builder: (context, isLoading, child) {
+              return _getButtonElement(context, isLoading);
+            },
+          )
+        : _getButtonElement(context, false);
+  }
+
+  ElevatedButton _getButtonElement(BuildContext context, bool isLoading) {
+    return ElevatedButton(
+      style: buttonStyle ??
+          ElevatedButton.styleFrom(
+              backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: roundType.getRadius(radius))),
+      onPressed: () {
+        if (!isLoading && onPressed != null) {
+          onPressed!();
+        }
       },
+      child: Row(
+        children: [
+          _getIcon(
+            context: context,
+            position: IconPosition.left,
+            isLoading: isLoading,
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                isLoading ? loadingText : text,
+                style: textStyle ??
+                    TextStyle(
+                      color: textColor ?? Theme.of(context).colorScheme.onPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+            ),
+          ),
+          _getIcon(
+            context: context,
+            position: IconPosition.right,
+            isLoading: isLoading,
+          ),
+        ],
+      ),
     );
+  }
+
+  Widget _getIcon({required BuildContext context, required IconPosition position, required bool isLoading}) {
+    if (position == iconPosition) {
+      return isLoading
+          ? SizedBox(
+              width: iconSize,
+              height: iconSize,
+              child: CircularProgressIndicator(
+                color: iconColor ?? Theme.of(context).colorScheme.onPrimary,
+              ),
+            )
+          : Icon(
+              iconData,
+              size: iconSize,
+              color: textColor ?? Theme.of(context).colorScheme.onPrimary,
+            );
+    }
+    return const SizedBox.shrink();
   }
 }
 

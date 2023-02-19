@@ -1,6 +1,7 @@
 library ga_uikit;
 
 export 'src/enums/round_type.dart';
+export 'src/enums/icon_position.dart';
 
 export 'src/widgets/container/ga_rounded_container.dart';
 export 'src/widgets/container/ga_view_container.dart';
