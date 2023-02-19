@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/round_type.dart';
+import '../../enums/radius_type.dart';
 
 class GaRoundedContainer extends StatelessWidget {
   const GaRoundedContainer({
@@ -10,7 +10,7 @@ class GaRoundedContainer extends StatelessWidget {
     this.width,
     this.height,
     this.bgColor,
-    this.roundType = RoundType.all,
+    this.roundType = RadiusType.all,
   });
 
   final Widget? child;
@@ -18,7 +18,7 @@ class GaRoundedContainer extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? bgColor;
-  final RoundType roundType;
+  final RadiusType roundType;
 
   @override
   Widget build(BuildContext context) {
