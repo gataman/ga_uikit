@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 enum RadiusType {
@@ -17,7 +16,7 @@ enum RadiusType {
 }
 
 extension RoundTypeRadius on RadiusType {
-  BorderRadiusGeometry getRadius(radius) {
+  BorderRadiusGeometry getRadius(double? radius) {
     Radius topLeft = Radius.zero;
     Radius bottomLeft = Radius.zero;
     Radius topRight = Radius.zero;

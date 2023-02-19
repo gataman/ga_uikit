@@ -23,21 +23,24 @@ class GaFormDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(child: LayoutBuilder(
-      builder: (context, boxConstraints) {
-        final width = _getDialogWidth(boxConstraints);
-        final height = _getDialogHeight(boxConstraints);
-        return SizedBox(
-          width: width,
-          height: height,
-          child: dialogContent,
-        );
-      },
-    ));
+    return Dialog(
+        insetPadding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: RadiusType.all.getRadius(10.0)),
+        child: LayoutBuilder(
+          builder: (context, boxConstraints) {
+            final width = _getDialogWidth(boxConstraints);
+            final height = _getDialogHeight(boxConstraints);
+            return SizedBox(
+              width: width,
+              height: height,
+              child: dialogContent,
+            );
+          },
+        ));
   }
 
   double _getDialogWidth(BoxConstraints boxConstraints) =>
-      boxConstraints.maxWidth > 1000 ? boxConstraints.maxWidth * widthRatio : boxConstraints.maxWidth;
+      boxConstraints.maxWidth > 1000 ? boxConstraints.maxWidth * widthRatio : boxConstraints.maxWidth * .9;
 
   double _getDialogHeight(BoxConstraints boxConstraints) => boxConstraints.maxHeight * heightRatio;
 }
