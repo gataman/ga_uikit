@@ -30,6 +30,7 @@ class GaFormDialogContent extends StatelessWidget {
     this.confirmIconPosition,
     this.cancelIconPosition,
     this.loadingText,
+    this.errorListener,
   });
 
   final String? title;
@@ -57,6 +58,7 @@ class GaFormDialogContent extends StatelessWidget {
   final IconPosition? cancelIconPosition;
   final double buttonRadius;
   final ValueNotifier<bool>? loadingListener;
+  final ValueNotifier<String?>? errorListener;
   final String? loadingText;
 
   @override
@@ -69,42 +71,60 @@ class GaFormDialogContent extends StatelessWidget {
           radius: titleBoxRadius,
           roundType: RoundType.top,
           height: titleBoxHeight,
-          child: Row(
-            children: [
-              Expanded(
-                  child: Padding(
-                padding: titlePadding,
-                child: Text(
-                  title ?? '',
-                  style: titleStyle ??
-                      Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
-                ),
-              )),
-              if (hasCloseButton)
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: closeIcon ??
-                      Icon(
-                        Icons.close,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
-                ),
-            ],
-          ),
+          child: _titleRow(context),
         ),
-        Expanded(child: SingleChildScrollView(child: content)),
-        Row(
-          children: [
-            if (onCancelButtonPressed != null) _getCancelButton(context),
-            if (onConfirmButtonPressed != null && onCancelButtonPressed != null)
-              const SizedBox(
-                width: 1,
+        if (errorListener != null && errorListener!.value != null)
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Container(
+              color: Theme.of(context).colorScheme.error,
+              child: Center(
+                child: Text(errorListener!.value ?? ''),
               ),
-            if (onConfirmButtonPressed != null) _getConfirmButton(context),
-          ],
-        )
+            ),
+          ),
+        Expanded(child: SingleChildScrollView(child: content)),
+        _actionButtons(context)
+      ],
+    );
+  }
+
+  Row _actionButtons(BuildContext context) {
+    return Row(
+      children: [
+        if (onCancelButtonPressed != null) _getCancelButton(context),
+        if (onConfirmButtonPressed != null && onCancelButtonPressed != null)
+          const SizedBox(
+            width: 1,
+          ),
+        if (onConfirmButtonPressed != null) _getConfirmButton(context),
+      ],
+    );
+  }
+
+  Row _titleRow(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+            child: Padding(
+          padding: titlePadding,
+          child: Text(
+            title ?? '',
+            style: titleStyle ??
+                Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+          ),
+        )),
+        if (hasCloseButton)
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: closeIcon ??
+                Icon(
+                  Icons.close,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+          ),
       ],
     );
   }
