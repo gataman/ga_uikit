@@ -52,7 +52,7 @@ class GaFormDialogContent extends StatelessWidget {
 
   final double buttonRadius;
 
-  final ValueNotifier<bool> loadingListener;
+  final ValueNotifier<bool>? loadingListener;
 
   @override
   Widget build(BuildContext context) {
