@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../enums/menu_type.dart';
 import 'ga_popup_menu_button.dart';
 
 typedef MenuCallBack = void Function(MenuType menuType);
-
-enum MenuType { add, edit, delete }
 
 class CrudPopupMenu extends StatelessWidget {
   const CrudPopupMenu({super.key, required this.menuCallBack, this.iconData});

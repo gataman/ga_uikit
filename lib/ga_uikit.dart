@@ -2,6 +2,7 @@ library ga_uikit;
 
 export 'src/enums/radius_type.dart';
 export 'src/enums/icon_position.dart';
+export 'src/enums/menu_type.dart';
 
 export 'src/widgets/container/ga_rounded_container.dart';
 export 'src/widgets/container/ga_view_container.dart';

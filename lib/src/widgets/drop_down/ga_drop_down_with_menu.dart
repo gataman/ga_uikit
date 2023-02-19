@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../enums/menu_type.dart';
 import '../popup_menu/crud_popup_menu.dart';
 import 'menu_item.dart';
 
