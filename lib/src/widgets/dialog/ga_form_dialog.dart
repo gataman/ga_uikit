@@ -23,10 +23,10 @@ class GaFormDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return Dialog(
         insetPadding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(borderRadius: RadiusType.all.getRadius(10.0)),
-        content: LayoutBuilder(
+        child: LayoutBuilder(
           builder: (context, boxConstraints) {
             final width = _getDialogWidth(boxConstraints);
             final height = _getDialogHeight(boxConstraints);
