@@ -5,35 +5,35 @@ extension CustomColorExtension on BuildContext {
 }
 
 class GaFormDialogContent extends StatelessWidget {
-  const GaFormDialogContent({
-    super.key,
-    required this.content,
-    this.title,
-    this.titleStyle,
-    this.titleBoxRadius = 10,
-    this.titleBoxHeight = 40,
-    this.titlePadding = const EdgeInsets.all(8.0),
-    this.closeIcon,
-    this.onConfirmButtonPressed,
-    this.confirmButtonLabel,
-    this.confirmButtonIcon,
-    this.hasCloseButton = true,
-    this.onCancelButtonPressed,
-    this.cancelButtonLabel,
-    this.cancelButtonIcon,
-    this.confirmButtonColor,
-    this.cancelButtonColor,
-    required this.loadingListener,
-    this.confirmButtonRoundType = RadiusType.none,
-    this.cancelButtonRoundType = RadiusType.none,
-    this.buttonRadius = 10,
-    this.confirmIconPosition,
-    this.cancelIconPosition,
-    this.loadingText,
-    this.errorListener,
-    this.errorTextStyle,
-    this.errorBoxDecoration,
-  });
+  const GaFormDialogContent(
+      {super.key,
+      required this.content,
+      this.title,
+      this.titleStyle,
+      this.titleBoxRadius = 10,
+      this.titleBoxHeight = 40,
+      this.titlePadding = const EdgeInsets.all(8.0),
+      this.closeIcon,
+      this.onConfirmButtonPressed,
+      this.confirmButtonLabel,
+      this.confirmButtonIcon,
+      this.hasCloseButton = true,
+      this.onCancelButtonPressed,
+      this.cancelButtonLabel,
+      this.cancelButtonIcon,
+      this.confirmButtonColor,
+      this.cancelButtonColor,
+      required this.loadingListener,
+      this.confirmButtonRoundType = RadiusType.none,
+      this.cancelButtonRoundType = RadiusType.none,
+      this.buttonRadius = 10,
+      this.confirmIconPosition,
+      this.cancelIconPosition,
+      this.loadingText,
+      this.errorListener,
+      this.errorTextStyle,
+      this.errorBoxDecoration,
+      this.isExpanded = false});
 
   final String? title;
   final Widget content;
@@ -65,6 +65,7 @@ class GaFormDialogContent extends StatelessWidget {
 
   final TextStyle? errorTextStyle;
   final Decoration? errorBoxDecoration;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +80,7 @@ class GaFormDialogContent extends StatelessWidget {
           child: _titleRow(context),
         ),
         _errorContainer(context),
-        Expanded(child: SingleChildScrollView(child: content)),
+        Expanded(child: isExpanded ? content : SingleChildScrollView(child: content)),
         _actionButtons(context)
       ],
     );
