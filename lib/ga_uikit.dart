@@ -21,6 +21,7 @@ export 'src/widgets/tab_bar/ga_tab_bar.dart';
 export 'src/widgets/text/ga_container_title.dart';
 export 'src/widgets/text/ga_empty_alert_text.dart';
 export 'src/widgets/dialog/ga_static_dialogs.dart';
+export 'src/widgets/icons/ga_static_icons.dart';
 
 export 'src/theme/app_theme_manager.dart';
 export 'src/theme/base_app_theme.dart';

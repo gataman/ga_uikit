@@ -37,5 +37,6 @@ class AppThemeManager {
         textTheme: appTheme.textTheme,
         dividerTheme: appTheme.dividerThemeData,
         dialogTheme: appTheme.dialogTheme,
+        floatingActionButtonTheme: appTheme.floatingActionButtonThemeData,
       );
 }

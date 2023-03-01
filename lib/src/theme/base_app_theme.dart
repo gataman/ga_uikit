@@ -22,4 +22,5 @@ abstract class BaseAppTheme {
   DividerThemeData? get dividerThemeData;
   DialogTheme? get dialogTheme;
   Iterable<ThemeExtension<dynamic>>? get customColorExtensions;
+  FloatingActionButtonThemeData get floatingActionButtonThemeData;
 }

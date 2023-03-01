@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ga_uikit/src/widgets/icons/ga_static_icons.dart';
 
 class GaTextFormField extends StatelessWidget {
   const GaTextFormField({
@@ -16,6 +17,7 @@ class GaTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.obscuringCharacter = '•',
     this.controller,
+    this.suffixIcon,
   });
 
   final String? label;
@@ -31,12 +33,17 @@ class GaTextFormField extends StatelessWidget {
   final bool obscureText;
   final String obscuringCharacter;
   final TextEditingController? controller;
+  final GaStaticIcons? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      decoration: InputDecoration(label: Text(label ?? ''), hintText: hintText),
+      decoration: InputDecoration(
+        label: Text(label ?? ''),
+        hintText: hintText,
+        suffixIcon: suffixIcon,
+      ),
       keyboardType: TextInputType.name,
       textInputAction: textInputAction ?? TextInputAction.go,
       textAlign: textAlign,
@@ -50,4 +57,13 @@ class GaTextFormField extends StatelessWidget {
       obscuringCharacter: obscuringCharacter,
     );
   }
+
+  static Widget addSuffixIcon() => FloatingActionButton(
+        mini: true,
+        onPressed: () {},
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          child: Icon(Icons.subdirectory_arrow_left),
+        ),
+      );
 }
