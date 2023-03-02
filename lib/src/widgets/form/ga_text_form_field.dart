@@ -39,6 +39,7 @@ class GaTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       controller: controller,
       decoration: InputDecoration(
         label: Text(label ?? ''),
