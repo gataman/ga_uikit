@@ -17,7 +17,8 @@ class GaTextFormField extends StatelessWidget {
       this.obscureText = false,
       this.obscuringCharacter = '•',
       this.controller,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.focusNode});
 
   final String? label;
   final String? hintText;
@@ -33,6 +34,7 @@ class GaTextFormField extends StatelessWidget {
   final String obscuringCharacter;
   final TextEditingController? controller;
   final GaStaticIcons? suffixIcon;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
