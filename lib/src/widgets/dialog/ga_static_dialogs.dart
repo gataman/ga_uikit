@@ -94,8 +94,8 @@ class GaStaticDialogs {
                   text: buttonLabel ?? 'Sil',
                   loadingListener: null,
                   onPressed: () {
-                    onConfirm();
                     Navigator.of(ctx).pop();
+                    onConfirm();
                   },
                   backgroundColor: confirmType == ConfirmType.delete
                       ? Theme.of(context).colorScheme.error
