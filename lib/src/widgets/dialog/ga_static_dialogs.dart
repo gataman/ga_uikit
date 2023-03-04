@@ -100,7 +100,7 @@ class GaStaticDialogs {
                   backgroundColor: confirmType == ConfirmType.delete
                       ? Theme.of(context).colorScheme.error
                       : Theme.of(context).colorScheme.primary,
-                  iconData: Icons.delete,
+                  iconData: confirmType == ConfirmType.delete ? Icons.delete : Icons.check,
                 )
                 /*  AppDeleteButton(onConfirm: () {
                   onConfirm();
