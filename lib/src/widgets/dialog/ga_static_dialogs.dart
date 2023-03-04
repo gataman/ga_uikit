@@ -39,11 +39,13 @@ class GaStaticDialogs {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  static void showDeleteAlertDialog({
-    required BuildContext context,
-    required String message,
-    required VoidCallback onConfirm,
-  }) {
+  static void showConfirmDialog(
+      {required BuildContext context,
+      required String message,
+      required VoidCallback onConfirm,
+      ConfirmType confirmType = ConfirmType.delete,
+      String? title,
+      String? buttonLabel}) {
     showDialog(
         context: context,
         builder: (ctx) {
@@ -72,7 +74,7 @@ class GaStaticDialogs {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'Uyarı',
+                      title ?? 'Uyarı',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20),
                     ),
@@ -89,13 +91,15 @@ class GaStaticDialogs {
               actionsAlignment: MainAxisAlignment.end,
               actions: [
                 GaLoadingButton(
-                  text: 'Sil',
+                  text: buttonLabel ?? 'Sil',
                   loadingListener: null,
                   onPressed: () {
                     onConfirm();
                     Navigator.of(ctx).pop();
                   },
-                  backgroundColor: Theme.of(context).colorScheme.error,
+                  backgroundColor: confirmType == ConfirmType.delete
+                      ? Theme.of(context).colorScheme.error
+                      : Theme.of(context).colorScheme.primary,
                   iconData: Icons.delete,
                 )
                 /*  AppDeleteButton(onConfirm: () {
