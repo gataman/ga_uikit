@@ -10,33 +10,41 @@ part 'ga_form_dialog_content.dart';
 class GaFormDialog extends StatelessWidget {
   const GaFormDialog({
     super.key,
-    required this.dialogContent,
+    required this.buildContent,
     this.widthRatio = .5,
     this.heightRatio = .8,
   });
 
-  final GaFormDialogContent dialogContent;
-
   // This only works in desktop size
   final double widthRatio;
   final double heightRatio;
+  final Widget Function(BuildContext context) buildContent;
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-        insetPadding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: RadiusType.all.getRadius(10.0)),
-        child: LayoutBuilder(
-          builder: (context, boxConstraints) {
-            final width = _getDialogWidth(boxConstraints);
-            final height = _getDialogHeight(boxConstraints);
-            return SizedBox(
-              width: width,
-              height: height,
-              child: dialogContent,
-            );
-          },
-        ));
+    return ScaffoldMessenger(
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Dialog(
+                insetPadding: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(borderRadius: RadiusType.all.getRadius(10.0)),
+                child: LayoutBuilder(
+                  builder: (context, boxConstraints) {
+                    final width = _getDialogWidth(boxConstraints);
+                    final height = _getDialogHeight(boxConstraints);
+                    return SizedBox(
+                      width: width,
+                      height: height,
+                      child: buildContent(context),
+                    );
+                  },
+                )),
+          );
+        },
+      ),
+    );
   }
 
   double _getDialogWidth(BoxConstraints boxConstraints) =>
@@ -44,3 +52,9 @@ class GaFormDialog extends StatelessWidget {
 
   double _getDialogHeight(BoxConstraints boxConstraints) => boxConstraints.maxHeight * heightRatio;
 }
+
+
+/*!SECTION
+
+
+*/
