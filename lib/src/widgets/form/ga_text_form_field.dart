@@ -46,7 +46,7 @@ class GaTextFormField extends StatelessWidget {
         hintText: hintText,
         suffixIcon: suffixIcon,
       ),
-      keyboardType: TextInputType.name,
+      keyboardType: keyboardType ?? TextInputType.name,
       textInputAction: textInputAction ?? TextInputAction.go,
       textAlign: textAlign,
       textAlignVertical: textAlignVertical,
