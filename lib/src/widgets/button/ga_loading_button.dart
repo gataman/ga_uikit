@@ -71,6 +71,8 @@ class GaLoadingButton extends StatelessWidget {
             child: Center(
               child: Text(
                 isLoading ? loadingText ?? text : text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: textStyle ??
                     TextStyle(
                       color: textColor ?? Theme.of(context).colorScheme.onPrimary,
