@@ -16,6 +16,7 @@ export 'src/widgets/form/ga_text_form_field.dart';
 export 'src/widgets/popup_menu/ga_popup_menu_button.dart';
 export 'src/widgets/popup_menu/crud_popup_menu.dart';
 export 'src/widgets/popup_menu/horizontal_pop_up_menu_item.dart';
+export 'src/widgets/popup_menu/ga_container_popup_menu_button.dart';
 export 'src/widgets/progress_bars/ga_circular_progress.dart';
 export 'src/widgets/tab_bar/ga_tab_bar.dart';
 export 'src/widgets/text/ga_container_title.dart';
