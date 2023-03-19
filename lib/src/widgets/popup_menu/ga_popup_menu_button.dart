@@ -2,29 +2,41 @@ import 'package:flutter/material.dart';
 
 class GaPopupMenuButton extends StatelessWidget {
   final List<PopupMenuEntry> menuList;
-  final Widget icon;
+  final Widget? icon;
+  final Widget? child;
+  final String tooltip;
+  final double borderRadius;
+  final PopupMenuPosition? position;
+  final Color? color;
 
   const GaPopupMenuButton({
     Key? key,
     required this.menuList,
-    required this.icon,
+    this.icon,
+    this.child,
+    this.tooltip = '',
+    this.borderRadius = 10,
+    this.position,
+    this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
+      tooltip: tooltip,
       itemBuilder: (context) {
         return menuList;
       },
       icon: icon,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(borderRadius),
         side: BorderSide(color: Theme.of(context).dividerColor),
       ),
-      position: PopupMenuPosition.under,
-      color: Theme.of(context).primaryColor,
+      position: position ?? PopupMenuPosition.under,
+      color: color ?? Theme.of(context).primaryColor,
       padding: EdgeInsets.zero,
       elevation: 0,
+      child: child,
     );
   }
 
