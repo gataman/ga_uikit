@@ -79,7 +79,8 @@ class GaFormDialogContent extends StatelessWidget {
           child: _titleRow(context),
         ),
         _errorContainer(context),
-        Expanded(child: isExpanded ? content : SingleChildScrollView(child: content)),
+        //   Expanded(child: isExpanded ? content : SingleChildScrollView(child: content)),
+        isExpanded ? Expanded(child: content) : content,
         _actionButtons(context)
       ],
     );
