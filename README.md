@@ -60,3 +60,7 @@ GA UI Kit is an open-source project for Flutter developers to use and contribute
 License
 GA UI Kit is licensed under the MIT License. For more information, please refer to the LICENSE file.
 
+Thanks to [@VB10](https://github.com/VB10) for the idea to extract out core widgets.
+
+[HardwareAndro](https://www.youtube.com/watch?v=s7_YllxtWu8&list=PL1k5oWAuBhgV_XnhMSyu2YLZMZNGuD0Cv&index=27)
+
