@@ -1,39 +1,62 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# GA UI Kit
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+GA UI Kit is a collection of useful widgets that can be used in Flutter. These widgets are designed to save developers time when developing applications and help them get started with their applications more quickly.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Installation
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+To use GA UI Kit, you need to add the following dependency in your `pubspec.yaml` file:
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  ga_uikit: ^1.0.0
+    git:
+      url: https://github.com/gataman/ga_uikit.git
+      ref: "ed2f082" #opsional if you want specific commit
 ```
 
-## Additional information
+Usage
+To use GA UI Kit, you can import it in your project files like this:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+import 'package:ga_uikit/ga_uikit.dart';
+```
+
+Then, you can use the widget you want. For example, the GaFormDialog  widget can be used as follows:
+
+```dart
+  GaFormDialog(
+    buildContent: (context) {
+      return GaFormDialogContent(
+        title: 'Add New Student',
+        content: Container(),
+        confirmButtonColor: context.primary,
+        onConfirmButtonPressed: () {
+         // Save student
+        },
+        confirmIconPosition: IconPosition.left,
+        confirmButtonRoundType: RadiusType.bottom,
+        confirmButtonLabel: LocaleKeys.actions_save.locale,
+        loadingListener: _loadingListener,
+        loadingText: 'Please wait...',
+        errorListener: _errorListener,
+      );
+    },
+  );
+
+```
+
+Examples
+GA UI Kit comes with a few example widgets. These widgets are:
+
+GACard: Provides a simple card view.
+GABottomBar: A pre-built widget for a bottom navigation bar.
+GATextField: Provides a simple text input box.
+GAButton: Provides a simple button widget.
+
+
+Contributing
+GA UI Kit is an open-source project for Flutter developers to use and contribute. Therefore, if you want to contribute to the project, you can contribute by solving the problems in the "Issues" section on our GitHub page or by adding a new feature.
+
+License
+GA UI Kit is licensed under the MIT License. For more information, please refer to the LICENSE file.
+
