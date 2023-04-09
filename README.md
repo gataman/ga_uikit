@@ -8,7 +8,7 @@ To use GA UI Kit, you need to add the following dependency in your `pubspec.yaml
 
 ```yaml
 dependencies:
-  ga_uikit: ^1.0.0
+  ga_uikit:
     git:
       url: https://github.com/gataman/ga_uikit.git
       ref: "ed2f082" #opsional if you want specific commit
