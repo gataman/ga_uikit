@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 abstract class BaseAppTheme {
-  ColorScheme? get colorScheme;
-  Color? get primaryColor;
-  Color? get canvasColor;
-  Color? get cardColor;
-  String? get fontFamily;
+  ColorScheme? get colorScheme => null;
+  Color? get primaryColor => null;
+  Color? get canvasColor => null;
+  Color? get cardColor => null;
+  String? get fontFamily => null;
 
-  AppBarTheme? get appBarTheme;
-  TextTheme? get textTheme;
-  CardTheme? get cardTheme;
-  InputDecorationTheme? get inputDecorationTheme;
-  ElevatedButtonThemeData? get elevatedButtonTheme;
-  PopupMenuThemeData? get popupMenuTheme;
-  DrawerThemeData? get drawerTheme;
-  NavigationDrawerThemeData? get navigationDrawerTheme;
-  TabBarTheme get tabBarTheme;
-  BottomSheetThemeData? get bottomSheetTheme;
-  Color? get dividerColor;
-  NavigationRailThemeData? get navigationRailTheme;
-  DividerThemeData? get dividerThemeData;
-  DialogTheme? get dialogTheme;
-  Iterable<ThemeExtension<dynamic>>? get customColorExtensions;
-  FloatingActionButtonThemeData get floatingActionButtonThemeData;
+  AppBarTheme? get appBarTheme => null;
+  TextTheme? get textTheme => null;
+  CardTheme? get cardTheme => null;
+  InputDecorationTheme? get inputDecorationTheme => null;
+  ElevatedButtonThemeData? get elevatedButtonTheme => null;
+  PopupMenuThemeData? get popupMenuTheme => null;
+  DrawerThemeData? get drawerTheme => null;
+  NavigationDrawerThemeData? get navigationDrawerTheme => null;
+  TabBarTheme? get tabBarTheme => null;
+  BottomSheetThemeData? get bottomSheetTheme => null;
+  Color? get dividerColor => null;
+  NavigationRailThemeData? get navigationRailTheme => null;
+  DividerThemeData? get dividerThemeData => null;
+  DialogTheme? get dialogTheme => null;
+  Iterable<ThemeExtension<dynamic>>? get customColorExtensions => null;
+  FloatingActionButtonThemeData? get floatingActionButtonThemeData => null;
 }
