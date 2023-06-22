@@ -45,7 +45,8 @@ Then, you can use the widget you want. For example, the GaFormDialog  widget can
 
 ```
 
-![Screenshot](./auto_complete.gif)
+<img src="./auto_complete.gif" width="300">
+
 
 
 ```dart
