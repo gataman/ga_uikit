@@ -29,6 +29,8 @@ class AppThemeManager {
         cardTheme: appTheme.cardTheme,
         drawerTheme: appTheme.drawerTheme,
         elevatedButtonTheme: appTheme.elevatedButtonTheme,
+        filledButtonTheme: appTheme.filledButtonTheme,
+        outlinedButtonTheme: appTheme.outlinedButtonTheme,
         inputDecorationTheme: appTheme.inputDecorationTheme,
         navigationDrawerTheme: appTheme.navigationDrawerTheme,
         navigationRailTheme: appTheme.navigationRailTheme,
@@ -38,5 +40,6 @@ class AppThemeManager {
         dividerTheme: appTheme.dividerThemeData,
         dialogTheme: appTheme.dialogTheme,
         floatingActionButtonTheme: appTheme.floatingActionButtonThemeData,
+        searchBarTheme: appTheme.searchBarTheme,
       );
 }

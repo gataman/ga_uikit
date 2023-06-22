@@ -24,8 +24,16 @@ export 'src/widgets/dialog/ga_static_dialogs.dart';
 export 'src/widgets/icons/ga_static_icons.dart';
 export 'src/widgets/stepper/ga_stepper.dart';
 
+export 'src/widgets/form/auto_validate_form_field.dart';
+export 'src/enums/text_form_field_type.dart';
+
+//Navigation:
+export 'src/widgets/navigation/ga_navigation_menu.dart';
+export 'src/widgets/navigation/src/ga_navigation_item.dart';
+
 export 'src/theme/app_theme_manager.dart';
 export 'src/theme/base_app_theme.dart';
 export 'src/theme/custom_colors.dart';
+export 'src/theme/theme_constants.dart';
 
 export 'src/painters/dashed_line_painter.dart';

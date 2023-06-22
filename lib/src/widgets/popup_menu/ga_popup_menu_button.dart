@@ -28,12 +28,12 @@ class GaPopupMenuButton extends StatelessWidget {
         return menuList;
       },
       icon: icon,
-      shape: RoundedRectangleBorder(
+      /*  shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        side: BorderSide(color: Theme.of(context).dividerColor),
-      ),
+       // side: BorderSide(color: Theme.of(context).dividerColor),
+      ), */
       position: position ?? PopupMenuPosition.under,
-      color: color ?? Theme.of(context).primaryColor,
+      color: color,
       padding: EdgeInsets.zero,
       elevation: 0,
       child: child,
@@ -58,7 +58,7 @@ class GaPopupMenuButton extends StatelessWidget {
                   iconData,
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
-                horizontalTitleGap: 0,
+                horizontalTitleGap: 8,
                 title: Text(
                   title,
                   style:

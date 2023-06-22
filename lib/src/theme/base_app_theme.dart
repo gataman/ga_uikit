@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ga_uikit/src/theme/theme_constants.dart';
 
 abstract class BaseAppTheme {
   ColorScheme? get colorScheme => null;
@@ -12,6 +13,8 @@ abstract class BaseAppTheme {
   CardTheme? get cardTheme => null;
   InputDecorationTheme? get inputDecorationTheme => null;
   ElevatedButtonThemeData? get elevatedButtonTheme => null;
+  FilledButtonThemeData? get filledButtonTheme => null;
+  OutlinedButtonThemeData? get outlinedButtonTheme => null;
   PopupMenuThemeData? get popupMenuTheme => null;
   DrawerThemeData? get drawerTheme => null;
   NavigationDrawerThemeData? get navigationDrawerTheme => null;
@@ -23,4 +26,6 @@ abstract class BaseAppTheme {
   DialogTheme? get dialogTheme => null;
   Iterable<ThemeExtension<dynamic>>? get customColorExtensions => null;
   FloatingActionButtonThemeData? get floatingActionButtonThemeData => null;
+  ThemeConstants get themeConstants => ThemeConstants();
+  SearchBarThemeData? get searchBarTheme => null;
 }

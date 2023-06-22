@@ -25,7 +25,7 @@ class GaRoundedContainer extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: bgColor ?? Theme.of(context).primaryColor,
+        color: bgColor ?? Theme.of(context).colorScheme.background,
         borderRadius: roundType.getRadius(radius),
       ),
       height: height ?? double.infinity,

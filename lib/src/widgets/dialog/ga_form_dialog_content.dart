@@ -77,6 +77,7 @@ class GaFormDialogContent extends StatelessWidget {
           roundType: RadiusType.top,
           height: titleBoxHeight,
           child: _titleRow(context),
+          bgColor: Theme.of(context).colorScheme.primary,
         ),
         _errorContainer(context),
         Expanded(child: isExpanded ? content : SingleChildScrollView(child: content)),
@@ -101,13 +102,20 @@ class GaFormDialogContent extends StatelessWidget {
   Row _titleRow(BuildContext context) {
     return Row(
       children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Icon(
+            Icons.widgets,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
+        ),
         Expanded(
             child: Padding(
           padding: titlePadding,
           child: Text(
             title ?? '',
             style: titleStyle ??
-                Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
           ),
         )),
         if (hasCloseButton)

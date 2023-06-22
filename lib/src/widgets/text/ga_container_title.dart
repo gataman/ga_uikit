@@ -56,7 +56,7 @@ class GaContainerTitle extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: titleTextStyle ?? Theme.of(context).textTheme.titleLarge,
+                  style: titleTextStyle ?? Theme.of(context).textTheme.titleMedium,
                 ),
               ),
               if (hasButton)
