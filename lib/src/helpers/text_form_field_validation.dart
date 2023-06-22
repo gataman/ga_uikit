@@ -1,18 +1,23 @@
+import '../constants/constants.dart';
+
 class TextFormFieldValidation {
   const TextFormFieldValidation._();
+
+  static Map<String, String> errorMessages = {
+    'email': 'E-posta adresinizi yazınız!',
+    'invalidEmail': 'Geçerli bir e-posta adresi giriniz',
+    'userName': 'Kullanıcı adınızı yazınız!',
+    'invalidUserName': 'Sadece harf ve rakamlardan oluşmalıdır!'
+  };
 
   static String? validateEmail(String? value) {
     if (value != null) {
       if (value.isEmpty) {
-        // The form is empty
-        return "E-posta adresinizi yazınız!";
+        return errorMessages['email'];
       }
-      // This is just a regular expression for email addresses
-      final bool emailValid =
-          RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value);
-
+      final bool emailValid = RegExp(Constants.emailRegex).hasMatch(value);
       if (!emailValid) {
-        return 'Geçerli bir e-posta adresi giriniz';
+        return errorMessages['invalidEmail'];
       } else {
         return null;
       }
@@ -24,11 +29,11 @@ class TextFormFieldValidation {
   static String? validateUserName(String? value) {
     if (value != null) {
       if (value.isEmpty) {
-        return "Kullanıcı adınızı yazınız!";
+        return errorMessages['userName'];
       }
-      final bool userNameValid = RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value);
+      final bool userNameValid = RegExp(Constants.userNameRegex).hasMatch(value);
       if (!userNameValid) {
-        return "Sadece harf ve rakamlardan oluşmalıdır!";
+        return errorMessages['invalidUserName'];
       } else {
         return null;
       }

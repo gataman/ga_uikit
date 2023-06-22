@@ -7,16 +7,6 @@ import '../../helpers/text_form_field_validation.dart';
 typedef OnSaved = void Function(String? value);
 
 class AutoValidateFormField extends StatefulWidget {
-  const AutoValidateFormField(
-      {super.key,
-      required this.labelText,
-      this.borderRadius = 4.0,
-      this.prefixIcon,
-      this.helperText,
-      this.fieldType,
-      this.minLength = 1,
-      this.onSaved,
-      this.controller});
   final String labelText;
   final double borderRadius;
   final Widget? prefixIcon;
@@ -25,6 +15,20 @@ class AutoValidateFormField extends StatefulWidget {
   final int minLength;
   final OnSaved? onSaved;
   final TextEditingController? controller;
+  final bool outlineBorder;
+
+  const AutoValidateFormField({
+    super.key,
+    required this.labelText,
+    this.borderRadius = 4.0,
+    this.prefixIcon,
+    this.helperText,
+    this.fieldType,
+    this.minLength = 1,
+    this.onSaved,
+    this.controller,
+    this.outlineBorder = false,
+  });
 
   @override
   State<AutoValidateFormField> createState() => _AutoValidateFormFieldState();
@@ -52,11 +56,19 @@ class _AutoValidateFormFieldState extends State<AutoValidateFormField> {
       onChanged: _onChanged,
       onSaved: widget.onSaved,
       decoration: InputDecoration(
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-          suffixIcon: _getSuffixIcon,
-          helperText: widget.helperText,
-          errorText: _errorText),
+        labelText: widget.labelText,
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: _getSuffixIcon,
+        helperText: widget.helperText,
+        errorText: _errorText,
+        border: widget.outlineBorder
+            ? OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                  widget.borderRadius,
+                ),
+              )
+            : null,
+      ),
     );
   }
 
