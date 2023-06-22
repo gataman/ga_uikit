@@ -45,6 +45,8 @@ Then, you can use the widget you want. For example, the GaFormDialog  widget can
 
 ```
 
+![Screenshot](./auto_complete.gif)
+
 
 ```dart
  AutoValidateFormField(
