@@ -50,36 +50,36 @@ Then, you can use the widget you want. For example, the GaFormDialog  widget can
 
 
 ```dart
- AutoValidateFormField(
-              labelText: 'Username',
-              fieldType: TextFormFieldType.username,
-              minLength: 3,
-              onSaved: (value) {
-                debugPrint('UserName : onSaved $value');
-                _username = value;
-              },
-            ),
-            const SizedBox(
-              height: kDefaultPadding,
-            ),
-            AutoValidateFormField(
-              labelText: 'E-mail',
-              fieldType: TextFormFieldType.email,
-              onSaved: (value) {
-                _email = value;
-              },
-            ),
-            const SizedBox(
-              height: kDefaultPadding,
-            ),
-            AutoValidateFormField(
-              labelText: 'Password',
-              fieldType: TextFormFieldType.password,
-              minLength: 6,
-              onSaved: (value) {
-                _password = value;
-              },
-            ),
+    AutoValidateFormField(
+      label: 'Username',
+      fieldType: TextFormFieldType.username,
+      minLength: 3,
+      onSaved: (value) {
+        debugPrint('UserName : onSaved $value');
+        _username = value;
+      },
+    ),
+    const SizedBox(
+      height: kDefaultPadding,
+    ),
+    AutoValidateFormField(
+      labelText: 'E-mail',
+      fieldType: TextFormFieldType.email,
+      onSaved: (value) {
+        _email = value;
+      },
+    ),
+    const SizedBox(
+      height: kDefaultPadding,
+    ),
+    AutoValidateFormField(
+      labelText: 'Password',
+      fieldType: TextFormFieldType.password,
+      minLength: 6,
+      onSaved: (value) {
+        _password = value;
+      },
+    ),
   ```
 
 Examples

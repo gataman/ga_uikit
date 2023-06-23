@@ -4,11 +4,24 @@ class TextFormFieldValidation {
   const TextFormFieldValidation._();
 
   static Map<String, String> errorMessages = {
+    'required': 'Bu alan boş olamaz!',
     'email': 'E-posta adresinizi yazınız!',
     'invalidEmail': 'Geçerli bir e-posta adresi giriniz',
     'userName': 'Kullanıcı adınızı yazınız!',
     'invalidUserName': 'Sadece harf ve rakamlardan oluşmalıdır!'
   };
+
+  static String? validateRequired(String? value) {
+    if (value != null) {
+      if (value.isEmpty) {
+        return errorMessages['required'];
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
 
   static String? validateEmail(String? value) {
     if (value != null) {

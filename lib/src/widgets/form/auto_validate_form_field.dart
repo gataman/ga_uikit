@@ -7,27 +7,36 @@ import '../../helpers/text_form_field_validation.dart';
 typedef OnSaved = void Function(String? value);
 
 class AutoValidateFormField extends StatefulWidget {
-  final String labelText;
-  final double borderRadius;
+  final String label;
+
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final String? helperText;
+
   final TextFormFieldType? fieldType;
-  final int minLength;
-  final OnSaved? onSaved;
-  final TextEditingController? controller;
+  final bool isRequired;
+
+  final double borderRadius;
   final bool outlineBorder;
+
+  final int minLength;
+
+  final TextEditingController? controller;
+  final OnSaved? onSaved;
 
   const AutoValidateFormField({
     super.key,
-    required this.labelText,
-    this.borderRadius = 4.0,
+    required this.label,
     this.prefixIcon,
+    this.suffixIcon,
     this.helperText,
     this.fieldType,
-    this.minLength = 1,
-    this.onSaved,
-    this.controller,
+    this.isRequired = false,
+    this.borderRadius = 4.0,
     this.outlineBorder = false,
+    this.minLength = 0,
+    this.controller,
+    this.onSaved,
   });
 
   @override
@@ -56,7 +65,7 @@ class _AutoValidateFormFieldState extends State<AutoValidateFormField> {
       onChanged: _onChanged,
       onSaved: widget.onSaved,
       decoration: InputDecoration(
-        labelText: widget.labelText,
+        labelText: widget.label,
         prefixIcon: widget.prefixIcon,
         suffixIcon: _getSuffixIcon,
         helperText: widget.helperText,
@@ -76,7 +85,18 @@ class _AutoValidateFormFieldState extends State<AutoValidateFormField> {
       widget.fieldType == TextFormFieldType.email ? TextInputType.emailAddress : TextInputType.text;
 
   String? Function(String? value)? get _getValidator =>
-      widget.fieldType == TextFormFieldType.email ? TextFormFieldValidation.validateEmail : null;
+      widget.isRequired ? TextFormFieldValidation.validateRequired : _getValidatorByType;
+
+  String? Function(String?) get _getValidatorByType {
+    switch (widget.fieldType) {
+      case TextFormFieldType.email:
+        return TextFormFieldValidation.validateEmail;
+      case TextFormFieldType.username:
+        return TextFormFieldValidation.validateUserName;
+      default:
+        return (value) => null;
+    }
+  }
 
   Widget? get _getSuffixIcon {
     if (widget.fieldType == TextFormFieldType.password) {
